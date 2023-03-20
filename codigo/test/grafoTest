@@ -21,4 +21,19 @@ class grafoTest {
         assertEquals(true, grafo.existeAresta(3, 4)); 
     }
 
+	public void testSalvar() {
+		Grafo g = new Grafo("grafo");
+		g.addAresta(1, 2, 3);
+		g.addAresta(2, 3, 2);
+		g.addAresta(3, 1 , 1);
+
+		g.salvar(g.nome+".txt");
+		
+	     assertEquals(true, g.existeAresta(1, 2)); 
+	     assertEquals(true, g.existeAresta(2, 3)); 
+	     assertEquals(true, g.existeAresta(3, 1)); 
+	       
+		
+	}
+
 }

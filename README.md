@@ -6,7 +6,7 @@ Escreva um ou dois parágrafos resumindo o objetivo do seu projeto.
 
 * Lucas Tabosa Guedes
 * Klaus Leão Teles
-* Henrique Diniz
+* Henrique Diniz a
 * Nome completo do aluno 4
 * Nome completo do aluno 4
 * Nome completo do aluno 4

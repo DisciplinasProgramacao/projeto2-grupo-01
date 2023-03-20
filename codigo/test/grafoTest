@@ -27,7 +27,7 @@ class grafoTest {
 		g.addAresta(2, 3, 2);
 		g.addAresta(3, 1 , 1);
 
-		g.salvar(g.nome+".txt");
+		g.salvar(g.nome);
 		
 	     assertEquals(true, g.existeAresta(1, 2)); 
 	     assertEquals(true, g.existeAresta(2, 3)); 

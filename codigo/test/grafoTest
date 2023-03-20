@@ -1,1 +1,24 @@
 
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Before;
+import org.junit.Test;
+
+class grafoTest {
+
+	@Test
+    public void testCarregar() {
+        // cria um novo grafo
+        Grafo grafo = new Grafo("Grafo de Teste");
+
+        // carrega o grafo a partir do arquivo
+        grafo.carregar("E:\\Programação Modular\\Trabalho2\\trabalho2\\ExGrafoSimples.txt");
+
+ 
+        assertEquals(true, grafo.existeAresta(1, 2)); 
+        assertEquals(true, grafo.existeAresta(1, 3)); 
+        assertEquals(true, grafo.existeAresta(2, 3)); 
+        assertEquals(true, grafo.existeAresta(3, 4)); 
+    }
+
+}

@@ -91,6 +91,12 @@ public class Grafo {
     }
 
     
+    public Vertice[] todosVertices() {
+    	Vertice[] todosVertices = null;//todos os vertices
+		todosVertices = vertices.allElements(todosVertices);
+		return todosVertices;
+    }
+    
     /**
      * Salva um grafo em um arquivo txt
      * @param nomeArquivo O indentificador do arquivo que deve ser carrecado
@@ -99,8 +105,7 @@ public class Grafo {
     	try {
 			FileWriter fw = new FileWriter(nomeArquivo+".txt");
 			
-			Vertice[] todosVertices = null;//todos os vertices
-			todosVertices = vertices.allElements(todosVertices);
+			Vertice[] todosVertices = todosVertices();
 			
 			for (Vertice v : todosVertices) {
 				for(Aresta a : v.todasArestas(v)) {
@@ -130,6 +135,11 @@ public class Grafo {
     }
 
     public Vertice existeVertice(int idVertice){
+    	Vertice[] todosVertices = todosVertices();
+    	for(Vertice v : todosVertices) {
+    		if (v.getId() == idVertice)
+    			return v;
+    	}
         return null;
     }
 

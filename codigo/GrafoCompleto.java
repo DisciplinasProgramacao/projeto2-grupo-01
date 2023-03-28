@@ -11,6 +11,8 @@ public static class GrafoCompleto extends Grafo {
     }
     super(nome);
 
+    // chamar esse metodo no construtor, terminar hoje
+    // for each dentro do for com o numero (id) de vertices passado por paramentro
     @Override
     public boolean addVertice(int id) {
         Vertice novo = new Vertice(id);

@@ -40,7 +40,7 @@ public class Grafo {
      * Construtor. Cria um grafo vazio com um nome escolhido pelo usuário. Em caso de nome não informado 
      * (string vazia), recebe o nome genérico "Grafo"
      */
-    public Grafo(String nome){
+    public Grafo(String nome, int numVertices){
         if(nome.length()==0) 
             this.nome = "Grafo";
         else
@@ -176,11 +176,11 @@ public class Grafo {
        return false;
     }
 
-    public Grafo subGrafo(Lista<Integer> vertices){
+    /*public Grafo subGrafo(Lista<Integer> vertices){
         Grafo subgrafo = new Grafo("Subgrafo de "+this.nome);
         
         return subgrafo;
-    }
+    }*/
     
     public int tamanho(){
         return Integer.MIN_VALUE;

@@ -103,7 +103,7 @@ public class Vertice {
         return this.visitado;
     }
     
-    public Aresta[] todasArestas() {
+    public Aresta[] todasArestas(Vertice v) {
     	Aresta[] todasArestas = null;
     	todasArestas = arestas.allElements(todasArestas);
     	

@@ -112,7 +112,8 @@ public class Grafo {
 					fw.write(v.getId() + ";" + a.destino() + ";" + a.peso() + "\n");
 				}
 			}
-			
+            
+        fw.close();
 		}catch (IOException e) {
             System.out.println("Erro ao salvar arquivo: " + e.getMessage());
         }

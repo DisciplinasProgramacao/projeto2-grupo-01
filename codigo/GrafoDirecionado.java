@@ -25,5 +25,15 @@ public class GrafoDirecionado extends GrafoMutavel {
         }
         return false;
     }
+    public Aresta removeAresta(int origem, int destino) {
+        Vertice verticeOrigem = this.existeVertice(origem);
+        if(verticeOrigem != null) {
+            Aresta arestaRemovida = verticeOrigem.removeAresta(destino);
+            if(arestaRemovida != null) {
+                return arestaRemovida;
+            }
+        }
+        return null;
+    }
 	
 }

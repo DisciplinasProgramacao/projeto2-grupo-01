@@ -48,7 +48,7 @@ public class Vertice {
     }
     
     public boolean addAresta(int destino){
-        return false;
+    	return this.arestas.add(destino, new Aresta(-1, destino));
     }
 
     /**
@@ -81,7 +81,7 @@ public class Vertice {
   
   
     public int grau(){
-        return Integer.MIN_VALUE;
+    	return arestas.size();
     }
 
     /**

@@ -61,10 +61,13 @@ public class Vertice {
         return this.arestas.add(destino,new Aresta(peso, destino));
     }
 
-    
+    /**
+     * Verifica se a aresta existe no gráfico
+     * @param destino Destino da aresta a partir desse vértice.
+     * @return A aresta encontrada, ou null se não existir.
+     */
     public Aresta existeAresta(int destino){
-        return null;
-
+    	return this.arestas.find(destino);
     }
     
     /**
@@ -103,10 +106,14 @@ public class Vertice {
         return this.visitado;
     }
     
-    public Aresta[] todasArestas(Vertice v) {
-    	Aresta[] todasArestas = null;
-    	todasArestas = arestas.allElements(todasArestas);
-    	
-    	return todasArestas;
+    /**
+     * Busca saber todos as arestas um vértice
+     * @return allArestas representa todos as arestass de um vértice
+     */
+    public Aresta[] todasArestas() {
+    	  Aresta[] allArestas = new Aresta[arestas.size()];
+          allArestas = arestas.allElements(allArestas);
+
+          return allArestas;
     }
 }

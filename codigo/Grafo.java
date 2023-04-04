@@ -130,6 +130,25 @@ public abstract class Grafo {
     
     
     public Grafo dfs(int idVerticeInicio) {
+
+        Vertice raiz = this.existeVertice(idVerticeInicio);
+
+        raiz.visitar();
+
+
+
+
+
+
+        // visitedNodes.add(node);
+        // System.out.print(node.id + " ");
+        
+        // for (Node adjacentNode : node.adjacentNodes) {
+        //     if (!visitedNodes.contains(adjacentNode)) {
+        //         depthFirstSearch(adjacentNode, visitedNodes);
+        //     }
+        // }
+
     	return null;
     }
    
@@ -160,5 +179,5 @@ public abstract class Grafo {
 
         return arestas;
     }
-    
+
 }

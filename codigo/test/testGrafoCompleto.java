@@ -13,7 +13,7 @@ public class testGrafoCompleto {
 
     @Test
     public void testGrafoCompletoNegativo() {
-    	GrafoCompleto g = new GrafoCompleto("G",3);
+    	GrafoDirecionado g = new GrafoDirecionado("G");
         g.addVertice(1);
         g.addVertice(2);
         g.addVertice(3);

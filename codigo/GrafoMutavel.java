@@ -103,6 +103,6 @@ public abstract class GrafoMutavel extends Grafo {
 
     }
 
-    public abstract boolean addAresta(); 
+    public abstract boolean addAresta(int origem, int destino, int peso); 
     
 }

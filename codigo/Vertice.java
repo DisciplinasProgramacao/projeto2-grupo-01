@@ -47,9 +47,16 @@ public class Vertice {
         return this.id;
     }
     
+    
+    /**
+     * Adiciona uma aresta não ponderada neste vértice para um destino
+     * @param dest Vértice de destino
+     * @return TRUE se foi inserida, FALSE caso já existisse e não foi inserida.
+     */
     public boolean addAresta(int destino){
-    	return this.arestas.add(destino, new Aresta(-1, destino));
+    	return this.arestas.add(destino, new Aresta(0, destino));
     }
+	
 
     /**
      * Adiciona uma aresta ponderada neste vértice para um destino
@@ -115,5 +122,10 @@ public class Vertice {
           allArestas = arestas.allElements(allArestas);
 
           return allArestas;
+    }
+    
+    public Lista<Integer> vizinhos(){
+    	//perguntar o que isso deveria fazer 
+    	return null;
     }
 }

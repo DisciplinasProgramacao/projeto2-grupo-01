@@ -1,3 +1,5 @@
+import java.util.List;
+
 /** 
  * MIT License
  *
@@ -125,7 +127,12 @@ public class Vertice {
     }
     
     public Lista<Integer> vizinhos(){
-    	//perguntar o que isso deveria fazer 
-    	return null;
+    	Lista<Integer> vizinhos = new Lista<Integer>();
+    	Aresta[] allArestas = todasArestas();
+    	for(Aresta a : allArestas ) {
+    		vizinhos.add(a.destino());
     }
+    	return vizinhos;
+}
+
 }

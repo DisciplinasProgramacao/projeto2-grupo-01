@@ -1,3 +1,5 @@
+import java.util.List;
+
 /** 
  * MIT License
  *
@@ -47,9 +49,16 @@ public class Vertice {
         return this.id;
     }
     
+    
+    /**
+     * Adiciona uma aresta não ponderada neste vértice para um destino
+     * @param dest Vértice de destino
+     * @return TRUE se foi inserida, FALSE caso já existisse e não foi inserida.
+     */
     public boolean addAresta(int destino){
-        return false;
+    	return this.arestas.add(destino, new Aresta(0, destino));
     }
+	
 
     /**
      * Adiciona uma aresta ponderada neste vértice para um destino
@@ -81,7 +90,7 @@ public class Vertice {
   
   
     public int grau(){
-        return Integer.MIN_VALUE;
+    	return arestas.size();
     }
 
     /**
@@ -115,6 +124,15 @@ public class Vertice {
           allArestas = arestas.allElements(allArestas);
 
           return allArestas;
+    }
+    
+    public Lista<Integer> vizinhos(){
+    	Lista<Integer> vizinhos = new Lista<Integer>();
+    	Aresta[] allArestas = todasArestas();
+    	for(Aresta a : allArestas ) {
+    		vizinhos.add(a.destino());
+        }
+    	return vizinhos;
     }
 
 }

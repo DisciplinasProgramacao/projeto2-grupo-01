@@ -9,7 +9,7 @@ class grafoTest {
 	@Test
     public void testCarregar() {
         // cria um novo grafo
-		GrafoPonderado grafo = new GrafoPonderado("Grafo de Teste");
+		GrafoDirecionado grafo = new GrafoDirecionado("Grafo de Teste");
 
         // carrega o grafo a partir do arquivo
         grafo.carregar("E:\\Programação Modular\\Trabalho2\\trabalho2\\ExGrafoSimples.txt");
@@ -25,7 +25,7 @@ class grafoTest {
 //	public void testSalvar() {
 //
 //		
-//		GrafoPonderado g = new GrafoPonderado("grafo");
+//		GrafoDirecionado g = new GrafoDirecionado("grafo");
 //		g.addVertice(1);
 //		g.addVertice(2);
 //		g.addVertice(3);

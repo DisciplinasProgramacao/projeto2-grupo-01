@@ -52,9 +52,9 @@ public abstract class Grafo {
      * Chama o método construtor da classe GrafoCompleto
      * @return o método construtor de GrafoCompleto
      */
-     public static Grafo grafoCompleto(int ordem) {
-     	 return GrafoCompleto(ordem); 	//ainda tenho que implementar esse método
-     }
+    public static Grafo grafoCompleto(int ordem) {
+        return new GrafoCompleto("Grafo completo de ordem" + ordem, ordem);
+    }
     
     /**
      * Retorna o nome do grafo (string), caso seja necessário em outras classes/sistemas
@@ -104,7 +104,18 @@ public abstract class Grafo {
     }
     
     
-    public abstract Grafo subGrafo(Lista<Vertice> vertices) throws Exception;
+    /**
+     * Gera um subgrafo a partir das indicações dos vértices do grafo original
+     * 
+     * @param vertices Lista de vértices do grafo original
+     * @return Um subgrafo com os vértices da lista
+     */
+    public Grafo subGrafo(Lista<Integer> vertices) {
+        GrafoDirecionado subgrafo = new GrafoDirecionado("Subgrafo de " + this.nome);
+        //perguntar sobre como posso fazer esse subgrafo
+    }
+
+
     
     
     
@@ -132,8 +143,36 @@ public abstract class Grafo {
     public Grafo dfs(int idVerticeInicio) {
 
         Vertice raiz = this.existeVertice(idVerticeInicio);
+        
 
+        Vertice[] vertices = todosVertices();
+        int numVertices = vertices.length;
+
+        
+        Lista<Integer> verticesVizinhos = new Lista<Integer>();
         raiz.visitar();
+        verticesVizinhos = raiz.vizinhos();
+
+        for(int i = 0; i < verticesVizinhos.size(); i++){
+            // Lista<Integer> proximosVizinhos = new Lista<Integer>();
+            // proximosVizinhos = verticesVizinhos.get()
+
+            // Vertice[] v = new Vertice[verticesVizinhos.size()];
+
+            // v = verticesVizinhos.allElements(v);
+
+            // for(int i = 0; i < verticesVizinhos[i].vizinhos(); i++){
+                
+            // }
+
+        }
+
+        for (int i = 0; i < numVertices; i++) {
+
+        }
+
+            
+        
 
 
 

@@ -79,4 +79,39 @@ class grafoTest {
 	
 	}
 	
+	@Test
+	public void testDFS() {
+		
+		    GrafoNaoDireicionado g = new GrafoNaoDireicionado("grafo");
+		    g.addVertice(0);
+		    g.addVertice(1);
+		    g.addVertice(2);
+		    g.addVertice(3);
+
+		    g.addAresta(0, 1, 1);
+		    g.addAresta(0, 2, 1);
+		    g.addAresta(1, 2, 1);
+		    g.addAresta(2, 0, 1);
+		    g.addAresta(2, 3, 1);
+		    g.addAresta(3, 3, 1);
+
+		    ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		    PrintStream ps = new PrintStream(baos);
+		    System.setOut(ps);
+
+		    g.dfs(2);
+
+		    System.setOut(new PrintStream(new FileOutputStream(FileDescriptor.out)));
+
+		    String outputEsperado = "2 3 1 0 ";
+		    String outputGerado = baos.toString();
+		    assertEquals(outputEsperado, outputGerado);
+	   
+	    
+	    for(Vertice v : g.todosVertices()) {
+	    	assertEquals(true, v.visitado());
+	    }
+	}
+
+	
 }

@@ -4,7 +4,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Iterator;
 /** 
  * MIT License
  *
@@ -28,6 +30,7 @@ import java.util.HashMap;
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+import java.util.List;
 
 /** 
  * Classe básica para um Grafo simples não direcionado.
@@ -135,8 +138,39 @@ public abstract class Grafo {
     
     
     
-    public Grafo bfs(int idVerticeInicio) {
-    	return null;
+    public void bfs(int idVerticeInicio) {
+    	Lista <Vertice> fila = new Lista();
+   
+    	Vertice aux;
+    	
+    	Vertice[] todosVertices = todosVertices();
+    	
+    	if (this.vertices.find(idVerticeInicio) != null) {
+    	
+    	fila.add(this.vertices.find(idVerticeInicio));
+    	this.vertices.find(idVerticeInicio).visitar();
+    	
+    	}
+    	
+    	while (fila.size() != 0) {
+    		
+    		aux = fila.remove(0);
+    		System.out.print(aux.getId() + " ");
+    		
+
+    		
+			for (Vertice v : todosVertices) {
+				for(Aresta a : v.todasArestas()) {
+					if(!v.visitado()) {
+						v.visitar();
+						fila.add(v);
+					}
+				}
+			}
+			
+    	}
+    	
+  
     }
     
     

@@ -126,6 +126,11 @@ public class Vertice {
           return allArestas;
     }
     
+    
+    /**
+     * Retorna todos os vizinhos de um vértice
+     * @return vizinhos é uma lista de todos os vizinhos do vértice
+     */
     public Lista<Integer> vizinhos(){
     	Lista<Integer> vizinhos = new Lista<Integer>();
     	Aresta[] allArestas = todasArestas();

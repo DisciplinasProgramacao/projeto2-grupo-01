@@ -31,6 +31,7 @@ import java.util.Iterator;
  * SOFTWARE.
  */
 import java.util.List;
+import java.util.Stack;
 
 /** 
  * Classe básica para um Grafo simples não direcionado.
@@ -174,56 +175,27 @@ public abstract class Grafo {
     }
     
     
-    public Grafo dfs(int idVerticeInicio) {
-
-        Vertice raiz = this.existeVertice(idVerticeInicio);
-        
-
-        Vertice[] vertices = todosVertices();
-        int numVertices = vertices.length;
-
-        
-        Lista<Integer> verticesVizinhos = new Lista<Integer>();
-        raiz.visitar();
-        verticesVizinhos = raiz.vizinhos();
-
-        for(int i = 0; i < verticesVizinhos.size(); i++){
-            // Lista<Integer> proximosVizinhos = new Lista<Integer>();
-            // proximosVizinhos = verticesVizinhos.get()
-
-            // Vertice[] v = new Vertice[verticesVizinhos.size()];
-
-            // v = verticesVizinhos.allElements(v);
-
-            // for(int i = 0; i < verticesVizinhos[i].vizinhos(); i++){
+    public void dfs(int idVerticeInicio) {
+    	Stack<Vertice> pilha = new Stack<>();
+        pilha.push(vertices.find(idVerticeInicio));
+        while(!pilha.empty()) {
+        	Vertice verticeAtual = pilha.pop();
+        	if(!verticeAtual.visitado()) {
+        		verticeAtual.visitar();
+        		System.out.print(verticeAtual.getId() + " ");
+        		List<Integer> vizinhos = verticeAtual.vizinhos();
+        		for(Integer vizinho : vizinhos ) {
+        			Vertice verticeVizinho = vertices.find(vizinho);
+                    if (!verticeVizinho.visitado()) {
+                        pilha.push(verticeVizinho);
+                    }
                 
-            // }
-
+        		}
+        	}
         }
-
-        for (int i = 0; i < numVertices; i++) {
-
-        }
-
-            
-        
-
-
-
-
-
-
-        // visitedNodes.add(node);
-        // System.out.print(node.id + " ");
-        
-        // for (Node adjacentNode : node.adjacentNodes) {
-        //     if (!visitedNodes.contains(adjacentNode)) {
-        //         depthFirstSearch(adjacentNode, visitedNodes);
-        //     }
-        // }
-
-    	return null;
     }
+
+
    
  
 

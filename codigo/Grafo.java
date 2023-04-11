@@ -171,14 +171,6 @@ public abstract class Grafo {
 
         }
 
-            
-        
-
-
-
-
-
-
         // visitedNodes.add(node);
         // System.out.print(node.id + " ");
         

@@ -174,24 +174,29 @@ public abstract class Grafo {
     }
     
     
-    public void dfs(int idVerticeInicio) {
+     public Grafo dfs(int idVerticeInicio) {
+    	GrafoNaoDireicionado grafonaodirecionado = new GrafoNaoDireicionado("Grafo");
     	Stack<Vertice> pilha = new Stack<>();
         pilha.push(vertices.find(idVerticeInicio));
         while(!pilha.empty()) {
         	Vertice verticeAtual = pilha.pop();
         	if(!verticeAtual.visitado()) {
         		verticeAtual.visitar();
+        		grafonaodirecionado.addVertice(verticeAtual.getId());
         		System.out.print(verticeAtual.getId() + " ");
         		List<Integer> vizinhos = verticeAtual.vizinhos();
         		for(Integer vizinho : vizinhos ) {
         			Vertice verticeVizinho = vertices.find(vizinho);
                     if (!verticeVizinho.visitado()) {
                         pilha.push(verticeVizinho);
+                        grafonaodirecionado.addVertice(vizinho);
+                        grafonaodirecionado.addAresta(verticeAtual.getId(), vizinho, 0);
                     }
                 
         		}
         	}
         }
+        return grafonaodirecionado;
     }
 
 

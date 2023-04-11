@@ -103,7 +103,7 @@ class grafoTest {
 
 		    System.setOut(new PrintStream(new FileOutputStream(FileDescriptor.out)));
 
-		    String outputEsperado = "2 3 1 0 ";
+		    String outputEsperado = "2-3-1-0-";
 		    String outputGerado = baos.toString();
 		    assertEquals(outputEsperado, outputGerado);
 	   

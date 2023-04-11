@@ -76,6 +76,40 @@ public class App {
 
                 System.out.println("Grafo" + grafo.nome() + " foi criado com sucesso");
                 
+                int saida = 0;
+                vertice =0;
+                System.out.println("\nDigite -1 se quiser parar");
+            	System.out.println();
+            	System.out.println("1- Fazer busca em profundidade com o grafo criado");
+            	System.out.println("2- Fazer busca em largura com o grafo criado");
+                saida = scan.nextInt();
+                do {
+                	if(saida == 1) {
+                		System.out.println("Você escolheu busca em profundidade");
+                		System.out.println("Digite em qual vertice já criado deseja começar");
+                		vertice= scan.nextInt();
+                		System.out.println();
+                		System.out.println("Busca realizada com sucesso:");
+                		grafo.dfs(vertice);
+                		
+                	}else if(saida == 2) {
+                		System.out.println("Você escolheu busca em largura");
+                		System.out.println("Digite em qual vertice já criado deseja começar");
+                		vertice= scan.nextInt();
+                		grafo.bfs(vertice);
+                		
+                	}else if(saida ==3) {
+                		System.out.println("Você escolheu gerar um subgrafo");
+                		grafo.subGrafo(null);
+                	}
+                	else {
+                		System.out.println("Numero invalido");
+                        saida = scan.nextInt();
+                	}
+                	System.out.println("\nDigite -1 se quiser parar");
+                	saida = -1;
+                }while(saida != -1);
+                
             }
             else if(valid == 2){
 
@@ -135,22 +169,47 @@ public class App {
                     }
                 }
                 
-                System.out.println("Grafo" + grafo.nome() + " foi criado com sucesso");
+                System.out.println("Grafo " + grafo.nome() + " foi criado com sucesso");
 
+                int saida = 0;
+                vertice =0;
+                System.out.println("\nDigite -1 se quiser parar");
+            	System.out.println();
+            	System.out.println("1- Fazer busca em profundidade com o grafo criado");
+            	System.out.println("2- Fazer busca em largura com o grafo criado");
+            	System.out.println("3- Gerar subgrafo");
+                saida = scan.nextInt();
+                do {
+                	if(saida == 1) {
+                		System.out.println("Você escolheu busca em profundidade");
+                		System.out.println("Digite em qual vertice já criado deseja começar");
+                		vertice= scan.nextInt();
+                		System.out.println();
+                		System.out.println("Busca realizada com sucesso:");
+                		grafo.dfs(vertice);
+                		
+                	}else if(saida == 2) {
+                		System.out.println("Você escolheu busca em largura");
+                		System.out.println("Digite em qual vertice já criado deseja começar");
+                		vertice= scan.nextInt();
+                		grafo.bfs(vertice);
+                		
+                	}else if(saida ==3) {
+                		System.out.println("Você escolheu gerar um subgrafo");
+                		grafo.subGrafo(null);
+                	}
+                	else {
+                		System.out.println("Numero invalido");
+                        saida = scan.nextInt();
+                	}
+                	saida = -1;
+                }while(saida != -1);
             }
             else{
                 System.out.println("Opção Inválida");
             }
-
-            
-
-            
+          
         }
-
-        
-
-
-
         scan.close();	
     }
 }

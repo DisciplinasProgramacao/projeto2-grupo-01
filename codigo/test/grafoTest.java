@@ -112,6 +112,32 @@ class grafoTest {
 	    	assertEquals(true, v.visitado());
 	    }
 	}
-
+	
+	@Test
+    	public void testSubGrafoListaVazia() {
+        	Grafo g = new Grafo();
+        	Lista<Integer> vertices = new Lista<>();
+        	Grafo subgrafo = g.subGrafo(vertices);
+        	assertTrue(subgrafo.getNumVertices() == 0);
+    	}
+	
+	@Test
+   	 public void testSubGrafo() {
+        	Grafo g = new Grafo();
+        	g.addVertice(1);
+       	 	g.addVertice(2);
+        	g.addVertice(3);
+        	g.addAresta(1, 2, 0);
+        	g.addAresta(2, 3, 0);
+        	Lista<Integer> vertices = new Lista<>();
+        	vertices.adiciona(1);
+        	vertices.adiciona(3);
+        	Grafo subgrafo = g.subGrafo(vertices);
+        	assertTrue(subgrafo.getNumVertices() == 2);
+        	assertTrue(subgrafo.existeVertice(1) != null);
+        	assertTrue(subgrafo.existeVertice(3) != null);
+        	assertTrue(subgrafo.existeAresta(1, 2) == null);
+        	assertTrue(subgrafo.existeAresta(2, 3) == null);
+    }
 	
 }

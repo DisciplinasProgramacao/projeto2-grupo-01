@@ -138,7 +138,36 @@ public abstract class Grafo {
     }
     
     
-    
+    /*Código exemplo:
+    // faz a busca em largura a partir de um vértice inicial
+    public void BFS(int s) {
+        // marca todos os vértices como não visitados
+        boolean[] visited = new boolean[V];
+
+        // cria uma fila para a BFS
+        LinkedList<Integer> queue = new LinkedList<>();
+
+        // marca o vértice atual como visitado e o adiciona na fila
+        visited[s] = true;
+        queue.add(s);
+
+        while (queue.size() != 0) {
+            // remove o vértice da fila e imprime
+            s = queue.poll();
+            System.out.print(s + " ");
+
+            // obtém todos os vértices adjacentes ao vértice atual
+            Iterator<Integer> i = adj[s].listIterator();
+            while (i.hasNext()) {
+                int n = i.next();
+                // se o vértice adjacente ainda não foi visitado, marca como visitado e adiciona na fila
+                if (!visited[n]) {
+                    visited[n] = true;
+                    queue.add(n);
+                }
+            }
+        }
+    }*/
     public void bfs(int idVerticeInicio) {
     	Lista <Vertice> fila = new Lista();
    

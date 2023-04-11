@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 /** 
@@ -126,8 +127,13 @@ public class Vertice {
           return allArestas;
     }
     
-    public Lista<Integer> vizinhos(){
-    	Lista<Integer> vizinhos = new Lista<Integer>();
+    
+    /**
+     * Retorna todos os vizinhos de um vértice
+     * @return vizinhos é uma lista de todos os vizinhos do vértice
+     */
+    public List<Integer> vizinhos(){
+    	List<Integer> vizinhos = new ArrayList<Integer>();
     	Aresta[] allArestas = todasArestas();
     	for(Aresta a : allArestas ) {
     		vizinhos.add(a.destino());

@@ -219,8 +219,6 @@ public abstract class Grafo {
     }
 
 
- 
-
 	/**
      * Busca saber todos os vértices de um grafo
      * @return todosVertices representa todos os vértices de um grafo

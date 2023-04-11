@@ -78,7 +78,7 @@ public abstract class Grafo {
     
     /**
      * Método para verificar a existência de uma aresta do grafo
-     * @param retorna a aresta caso ela exista e null caso contrário
+     * @return retorna a aresta caso ela exista e null caso contrário
      */
     public Aresta existeAresta(int verticeA, int verticeB){
   	  Vertice saida = this.existeVertice(verticeA);
@@ -115,14 +115,25 @@ public abstract class Grafo {
      * @return Um subgrafo com os vértices da lista
      */
     public Grafo subGrafo(Lista<Integer> vertices) {
-        GrafoDirecionado subgrafo = new GrafoDirecionado("Subgrafo de " + this.nome);
-        //perguntar sobre como posso fazer esse subgrafo
+        // Grafo subgrafo = new Grafo("Subgrafo de " + this.nome);
+        GrafoNaoDireicionado subGrafoDirecionado = new GrafoNaoDireicionado("Subgrafo de" + this.nome);
+        Integer vetor[] = new Integer[vertices.size()];
+        vetor = vertices.allElements(vetor);
+
+        for (int i = 0; i < vetor.length; i++) {
+            subGrafoDirecionado.addVertice(vetor[i]);
+        }
+        for (int i = 0; i < vetor.length; i++) {
+            for (int x = 0; x < vetor.length; x++) {
+                if ((this.existeAresta(vetor[i], vetor[x]) != null)
+                        && (subGrafoDirecionado.existeVertice(vetor[x]) != null)) {
+                    subGrafoDirecionado.addAresta(vetor[i], vetor[x], 0); // Se sim, adiciona essa aresta no subgrafo
+                }
+            }
+        }
+        return subGrafoDirecionado;
     }
-
-
-    
-    
-    
+	
     public int tamanho() {
         return this.ordem() + (this.todasArestas().size() / 2);
     }

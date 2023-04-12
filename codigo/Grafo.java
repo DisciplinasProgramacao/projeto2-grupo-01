@@ -155,7 +155,12 @@ public abstract class Grafo {
         return this.vertices.size();
     }
     
-   
+   /**
+    * Realiza uma busca em largura (BFS) a partir de um vértice de origem,
+    * visitando todos os vértices alcançáveis em ordem de distância a partir do vértice de origem.
+    * 
+    * @param idVerticeInicio O ID do vértice de origem para iniciar a busca
+    */
     public void bfs(int idVerticeInicio) {
     	Lista <Vertice> fila = new Lista();
    

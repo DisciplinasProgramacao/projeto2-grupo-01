@@ -115,7 +115,7 @@ public abstract class Grafo {
      * @return Um subgrafo com os vértices da lista
      */
     public GrafoCompleto subGrafo(Lista<Integer> vertices) {
-        GrafoCompleto subGrafo = new GrafoCompleto("Subgrafo de" + this.nome);
+        GrafoCompleto subGrafo = new GrafoCompleto("Subgrafo de" + this.nome, vertices.size());
         Integer vetor[] = new Integer[vertices.size()];
         vetor = vertices.allElements(vetor);
 

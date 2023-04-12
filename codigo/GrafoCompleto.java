@@ -1,7 +1,13 @@
 public class GrafoCompleto extends Grafo {
   
     private int ordem;   
-    
+ 
+     /**
+     * Construtor da classe GrafoCompleto.
+     * 
+     * @param nome O nome do grafo.
+     * @param ordem A ordem do grafo completo, ou seja, o número de vértices.
+     */
     public GrafoCompleto(String nome, int ordem) {
         super(nome);
         this.setOrdem(ordem);

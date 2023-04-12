@@ -152,7 +152,12 @@ public abstract class Grafo {
         return this.vertices.size();
     }
     
-   
+    /**
+     * Realiza uma busca em largura (BFS) a partir de um vértice de origem,
+     * visitando todos os vértices alcançáveis em ordem de distância a partir do vértice de origem.
+     * 
+     * @param idVerticeInicio O ID do vértice de origem para iniciar a busca
+     */
     public void bfs(int idVerticeInicio) {
     	Lista <Vertice> fila = new Lista();
    
@@ -188,7 +193,14 @@ public abstract class Grafo {
   
     }
     
-    
+      /**
+       * Realiza uma busca em profundidade (DFS) a partir de um vértice de origem,
+       * visitando todos os vértices alcançáveis em profundidade a partir do vértice de origem,
+       * e retorna um novo grafo não direcionado contendo os vértices e arestas visitados.
+       * 
+       * @param idVerticeInicio O ID do vértice de origem para iniciar a busca
+       * @return Um novo grafo não direcionado contendo os vértices e arestas visitados
+       */
       public Grafo dfs(int idVerticeInicio) {
     	GrafoNaoDireicionado grafonaodirecionado = new GrafoNaoDireicionado("Grafo");
     	Stack<Vertice> pilha = new Stack<>();

@@ -43,4 +43,16 @@ public class GrafoCompleto extends Grafo {
     	return ordem;
     }
 
+  public Vertice addVertice(int id){
+        Vertice novo = new Vertice(id);
+        this.vertices.add(id, novo);
+        return novo;
+    }
+
+    public boolean addAresta(int origem, int destino, int peso){
+        if(this.existeVertice(origem)!=null &&  this.existeVertice(destino) !=null){
+            return (this.existeVertice(origem).addAresta(destino, peso)&&this.existeVertice(destino).addAresta(origem, peso));
+        }
+        return false;
+    }
 }

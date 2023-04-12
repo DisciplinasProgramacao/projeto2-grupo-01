@@ -114,28 +114,23 @@ public abstract class Grafo {
      * @param vertices Lista de vértices do grafo original
      * @return Um subgrafo com os vértices da lista
      */
-    public GrafoNaoDireicionado subGrafo(Lista<Integer> vertices) {
-        // GrafoDirecionado subgrafo = new GrafoDirecionado("Subgrafo de " + this.nome);
-
-        // return null;
-        //perguntar sobre como posso fazer esse subgrafo
-        // Grafo subgrafo = new Grafo("Subgrafo de " + this.nome);
-        GrafoNaoDireicionado subGrafoDirecionado = new GrafoNaoDireicionado("Subgrafo de" + this.nome);
+    public GrafoCompleto subGrafo(Lista<Integer> vertices) {
+        GrafoCompleto subGrafo = new GrafoCompleto("Subgrafo de" + this.nome);
         Integer vetor[] = new Integer[vertices.size()];
         vetor = vertices.allElements(vetor);
 
         for (int i = 0; i < vetor.length; i++) {
-            subGrafoDirecionado.addVertice(vetor[i]);
+            subGrafo.addVertice(vetor[i]);
         }
         for (int i = 0; i < vetor.length; i++) {
             for (int x = 0; x < vetor.length; x++) {
                 if ((this.existeAresta(vetor[i], vetor[x]) != null)
-                        && (subGrafoDirecionado.existeVertice(vetor[x]) != null)) {
-                    subGrafoDirecionado.addAresta(vetor[i], vetor[x], 0); // Se sim, adiciona essa aresta no subgrafo
+                        && (subGrafo.existeVertice(vetor[x]) != null)) {
+                    subGrafo.addAresta(vetor[i], vetor[x], 0); 
                 }
             }
         }
-        return subGrafoDirecionado;
+        return subGrafo;
     }
 	
     public int tamanho() {

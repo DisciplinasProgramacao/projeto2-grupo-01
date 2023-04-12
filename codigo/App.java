@@ -1,4 +1,8 @@
 import java.util.Scanner;
+import java.io.ByteArrayOutputStream;
+import java.io.FileDescriptor;
+import java.io.FileOutputStream;
+import java.io.PrintStream;
 
 public class App {
 
@@ -6,10 +10,10 @@ public class App {
     public static void main(String[] args) throws Exception {
 
         Scanner scan = new Scanner(System.in);
-        System.out.println("Sistema Inicializado...\n");
 
         int valid = 1;
         while(valid != -1){
+            System.out.println("Sistema Inicializado...\n");
             System.out.println("Digite -1 caso queira finalizar.\n\nSelecione uma das opções:\n");
             System.out.println("1 - Criar Grafo Direcionado\n2 - Criar Grafo Não Direcionado\n");
             valid = scan.nextInt();
@@ -77,30 +81,79 @@ public class App {
                 System.out.println("Grafo" + grafo.nome() + " foi criado com sucesso");
                 
                 int saida = 0;
-                vertice =0;
+                vertice = 0;
                 System.out.println("\nDigite -1 se quiser parar");
             	System.out.println();
             	System.out.println("1- Fazer busca em profundidade com o grafo criado");
             	System.out.println("2- Fazer busca em largura com o grafo criado");
+                System.out.println("3- Gerar subgrafo");
                 saida = scan.nextInt();
                 do {
                 	if(saida == 1) {
                 		System.out.println("Você escolheu busca em profundidade");
                 		System.out.println("Digite em qual vertice já criado deseja começar");
                 		vertice= scan.nextInt();
-                		System.out.println();
-                		System.out.println("Busca realizada com sucesso:");
-                		grafo.dfs(vertice);
+                        System.out.println("Busca realizada com sucesso: ");
+                        grafo.dfs(vertice);
+                		
+                		
                 		
                 	}else if(saida == 2) {
                 		System.out.println("Você escolheu busca em largura");
                 		System.out.println("Digite em qual vertice já criado deseja começar");
                 		vertice= scan.nextInt();
-                		grafo.bfs(vertice);
+
+                        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                        PrintStream ps = new PrintStream(baos);
+                        System.setOut(ps);
+                        
+                        grafo.bfs(vertice);
+                        
+                        System.setOut(new PrintStream(new FileOutputStream(FileDescriptor.out)));
+                        
+                        // String outputEsperado = "2 0 1 3 ";
+                        String outputGerado = baos.toString();
+                        System.out.println("Resultado da Busca bfs: " + outputGerado);
+                        
+
+
+                		// grafo.bfs(vertice);
                 		
                 	}else if(saida ==3) {
                 		System.out.println("Você escolheu gerar um subgrafo");
-                		grafo.subGrafo(null);
+
+                        Lista<Integer> vertices = new Lista<Integer>();
+
+                        int vertic = 0;
+
+                        while(vertic != -1){
+                            System.out.println("Digite o vértice que deseja ter no subgrafo (digite -1 para parar):");
+                            vertic = scan.nextInt();
+
+                            if(grafo.existeVertice(vertic) == null && vertic != -1){
+                                vertices.add(vertic);
+                            }
+
+                        }
+
+
+                		Grafo subgrafo = grafo.subGrafo(vertices);
+
+                        // subgrafo.todasArestas()
+
+                        Vertice[] todosVerticesSubgrafo = subgrafo.todosVertices();
+                        System.out.println(todosVerticesSubgrafo.length);
+
+                        for(Vertice v : todosVerticesSubgrafo){
+                            
+                            Aresta[] arestas = v.todasArestas();
+        
+                            for(Aresta a : arestas){
+                                System.out.println(v.getId() + "---" + a.peso() + "--->" + a.destino());
+                            }
+                        }
+
+
                 	}
                 	else {
                 		System.out.println("Numero invalido");
@@ -177,7 +230,7 @@ public class App {
             	System.out.println();
             	System.out.println("1- Fazer busca em profundidade com o grafo criado");
             	System.out.println("2- Fazer busca em largura com o grafo criado");
-            	System.out.println("3- Gerar subgrafo");
+                System.out.println("3- Gerar subgrafo");
                 saida = scan.nextInt();
                 do {
                 	if(saida == 1) {
@@ -189,14 +242,59 @@ public class App {
                 		grafo.dfs(vertice);
                 		
                 	}else if(saida == 2) {
-                		System.out.println("Você escolheu busca em largura");
+
+                        System.out.println("Você escolheu busca em largura");
                 		System.out.println("Digite em qual vertice já criado deseja começar");
                 		vertice= scan.nextInt();
-                		grafo.bfs(vertice);
+
+                        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                        PrintStream ps = new PrintStream(baos);
+                        System.setOut(ps);
+                        
+                        grafo.bfs(vertice);
+                        
+                        System.setOut(new PrintStream(new FileOutputStream(FileDescriptor.out)));
+                        
+                        // String outputEsperado = "2 0 1 3 ";
+                        String outputGerado = baos.toString();
+                        System.out.println("Resultado da Busca bfs: " + outputGerado + "\n");
+
                 		
                 	}else if(saida ==3) {
                 		System.out.println("Você escolheu gerar um subgrafo");
-                		grafo.subGrafo(null);
+
+                        Lista<Integer> vertices = new Lista<Integer>();
+
+                        int vertic = 0;
+
+                        while(vertic != -1){
+                            System.out.println("Digite o vértice que deseja ter no subgrafo (digite -1 para parar):");
+                            vertic = scan.nextInt();
+
+                            if(grafo.existeVertice(vertic) == null && vertic != -1){
+                                vertices.add(vertic);
+                            }
+
+                        }
+
+
+                		GrafoNaoDireicionado subgrafo = grafo.subGrafo(vertices);
+
+                        // subgrafo.todasArestas()
+
+                        Vertice[] todosVerticesSubgrafo = subgrafo.todosVertices();
+                        System.out.println(todosVerticesSubgrafo.length);
+
+                        for(Vertice v : todosVerticesSubgrafo){
+                            
+                            Aresta[] arestas = v.todasArestas();
+        
+                            for(Aresta a : arestas){
+                                System.out.println(v.getId() + "---" + a.peso() + "---" + a.destino());
+                            }
+                        }
+
+
                 	}
                 	else {
                 		System.out.println("Numero invalido");

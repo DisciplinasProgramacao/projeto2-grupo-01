@@ -114,13 +114,11 @@ public abstract class Grafo {
      * @param vertices Lista de vértices do grafo original
      * @return Um subgrafo com os vértices da lista
      */
-    public Grafo subGrafo(Lista<Integer> vertices) {
-<<<<<<< HEAD
-        GrafoDirecionado subgrafo = new GrafoDirecionado("Subgrafo de " + this.nome);
+    public GrafoNaoDireicionado subGrafo(Lista<Integer> vertices) {
+        // GrafoDirecionado subgrafo = new GrafoDirecionado("Subgrafo de " + this.nome);
 
-        return null;
+        // return null;
         //perguntar sobre como posso fazer esse subgrafo
-=======
         // Grafo subgrafo = new Grafo("Subgrafo de " + this.nome);
         GrafoNaoDireicionado subGrafoDirecionado = new GrafoNaoDireicionado("Subgrafo de" + this.nome);
         Integer vetor[] = new Integer[vertices.size()];
@@ -138,7 +136,6 @@ public abstract class Grafo {
             }
         }
         return subGrafoDirecionado;
->>>>>>> 95185acc9131513c8b0938ed25be22a7df0dad37
     }
 	
     public int tamanho() {

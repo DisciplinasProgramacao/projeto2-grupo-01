@@ -32,7 +32,13 @@ public class GrafoCompleto extends Grafo {
         if (ordem > 0)
             this.ordem = ordem;
     }
-    
+  
+  
+     /**
+     * Método para obter a ordem do grafo completo.
+     * 
+     * @return A ordem do grafo completo.
+     */
     public int getOrdem() {
     	return ordem;
     }

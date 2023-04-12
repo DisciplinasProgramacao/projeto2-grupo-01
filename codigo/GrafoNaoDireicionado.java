@@ -26,7 +26,15 @@ public class GrafoNaoDireicionado extends GrafoMutavel {
         }
         return false;
     }
-    
+     
+	
+     /**
+     * Remove uma aresta entre dois vértices do grafo não direcionado, caso a aresta exista.
+     * 
+     * @param origem Vértice de origem da aresta a ser removida.
+     * @param destino Vértice de destino da aresta a ser removida.
+     * @return Aresta removida, ou null caso a aresta não exista ou algum dos vértices não exista.
+     */
     public Aresta removeAresta(int origem, int destino) {
         Vertice verticeOrigem = this.existeVertice(origem);
         Vertice verticeDestino = this.existeVertice(destino);

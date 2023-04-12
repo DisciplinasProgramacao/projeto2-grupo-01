@@ -23,7 +23,11 @@ public class GrafoCompleto extends Grafo {
     }
     
 
-    
+     /**
+     * Método para definir a ordem do grafo completo.
+     * 
+     * @param ordem A ordem do grafo completo.
+     */
     public void setOrdem(int ordem) {
         if (ordem > 0)
             this.ordem = ordem;

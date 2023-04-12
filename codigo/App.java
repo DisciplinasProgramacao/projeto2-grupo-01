@@ -278,7 +278,7 @@ public class App {
                         }
 
 
-                		GrafoNaoDireicionado subgrafo = grafo.subGrafo(vertices);
+                		GrafoCompleto subgrafo = grafo.subGrafo(vertices);
 
                         // subgrafo.todasArestas()
 

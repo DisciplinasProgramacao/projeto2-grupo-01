@@ -126,7 +126,7 @@ public abstract class Grafo {
             for (int x = 0; x < vetor.length; x++) {
                 if ((this.existeAresta(vetor[i], vetor[x]) != null)
                         && (subGrafo.existeVertice(vetor[x]) != null)) {
-                    subGrafo.addAresta(vetor[i], vetor[x], 0); 
+                    subGrafo.addAresta(vetor[i], vetor[x], 0);
                 }
             }
         }
